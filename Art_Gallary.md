@@ -1,3 +1,7 @@
+---
+layout: home
+title: Art Gallary
+---
 <!DOCTYPE html>
 <html lang="en">
 
