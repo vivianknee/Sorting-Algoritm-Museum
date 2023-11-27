@@ -2,7 +2,6 @@
 layout: home
 search_exclude: true
 ---
-
 <html lang="en">
 
 <head>
@@ -10,6 +9,7 @@ search_exclude: true
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fibonacci Art Gallery</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="sort.js" defer></script>
 </head>
 
 <body>
@@ -21,6 +21,7 @@ search_exclude: true
                 <li><a href="#sorted-by-date">Sorted by Date</a></li>
                 <li><a href="#sorted-by-size">Sorted by Size</a></li>
                 <li><a href="#sorted-by-color">Sorted by Color</a></li>
+                <li><a href="#sorted-by-likes">Sorted by Likes</a></li>
             </ul>
         </nav>
     </header>
@@ -50,6 +51,13 @@ search_exclude: true
             <h2>Sorted by Color</h2>
             <div class="art-gallery">
                 <!-- Art pieces sorted by color -->
+                <!-- Display sorted art here -->
+            </div>
+        </section>
+        <section id="sorted-by-likes">
+            <h2>Sorted by Likes</h2>
+            <div class="art-gallery" id="likesGallery">
+                <!-- Art pieces sorted by likes -->
                 <!-- Display sorted art here -->
             </div>
         </section>
