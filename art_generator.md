@@ -45,24 +45,57 @@ permalink: /ArtGenerator/
 const canvas = document.getElementById('fibCanvas');
 const ctx = canvas.getContext('2d');
 function generateArt() {
-    // Your logic to generate Fibonacci art goes here
-    // For example, drawing a simple Fibonacci pattern as a placeholder
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    let a = 1;
-    let b = 1;
-    ctx.beginPath();
-    ctx.moveTo(canvas.width / 2, canvas.height / 2);
-    for (let i = 0; i < 100; i++) {
-        const temp = a;
-        a = b;
-        b = temp + b;
-        ctx.lineTo(canvas.width / 2 + a, canvas.height / 2 + b);
+    const method = Math.random() < 0.5 ? 'recursive' : 'goldenRatio';
+    if (method === 'recursive') {
+        generateRecursiveArt();
+    } else {
+        generateGoldenRatioArt();
     }
-    ctx.strokeStyle = 'blue';
-    ctx.stroke();
+}
+function generateRecursiveArt() {
+    // Recursive Relation Method to generate Fibonacci art
+    // Implement your recursive relation logic here
+    // Example:
+    const maxIterations = 100;
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    recursiveDraw(centerX, centerY, 1, 1, 0, maxIterations);
+}
+function recursiveDraw(x, y, a, b, count, maxIterations) {
+    if (count < maxIterations) {
+        ctx.beginPath();
+        ctx.arc(x, y, a * 5, 0, Math.PI * 2);
+        ctx.fillStyle = `hsl(${count * 3}, 70%, 50%)`; // Color based on iteration
+        ctx.fill();
+        const nextX = x + b * 5 * Math.cos(count);
+        const nextY = y + b * 5 * Math.sin(count);
+        recursiveDraw(nextX, nextY, b, a + b, count + 1, maxIterations);
+    }
+}
+function generateGoldenRatioArt() {
+    // Golden Ratio Method to generate Fibonacci art
+    // Implement your golden ratio logic here
+    const goldenRatio = (1 + Math.sqrt(5)) / 2;
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    let prevA = 0;
+    let prevB = 1;
+    for (let i = 0; i < 150; i++) {
+        const temp = prevA;
+        prevA = prevB;
+        prevB = temp + prevB;
+        const radius = prevA * 5; // Adjust the multiplier for size
+        const angle = i * (Math.PI / 180) * goldenRatio;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        ctx.beginPath();
+        ctx.arc(x, y, 1, 0, Math.PI * 2);
+        ctx.fillStyle = `hsl(${i * 3}, 70%, 50%)`; // Color based on iteration
+        ctx.fill();
+    }
 }
 function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
-
 </script>
