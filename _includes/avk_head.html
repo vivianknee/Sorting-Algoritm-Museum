@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 
 <html>
     <head>
@@ -8,17 +7,80 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <header>
+        <header class="nav_header">
             <img class="logo" scr="images/logo.svg" alt="logo">
             <nav>
                 <ul class="nav_links">
-                    <li><a href="#">Popularity</a></li>
-                    <li><a href="#">Artists</a></li>
-                    <li><a href="#">Fibonacci</a></li>
+                    <li class="nav_list"><a class="nav_a" href="#">Popularity</a></li>
+                    <li class="nav_list"><a class="nav_a" href="#">Artists</a></li>
+                    <li class="nav_list"><a class="nav_a" href="#">Fibonacci</a></li>
                 </ul>
             </nav>
-            <a class="about" href="#"><button>About</button></a>
+            <a class="about" href="#"><button class="nav_button">About</button></a>
         </header>
     </body>
 </html>
 
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+    .nav_list, .nav_a, button {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: #edf0f1;
+        text-decoration: none;
+    }
+
+    .nav_header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 10%;
+        background-color: #24252A;
+    }
+
+    .logo {
+        cursor: pointer;
+    }
+
+    .nav_links {
+        list-style: none;
+        background-color: #24252A;
+    }
+
+    .nav_links .nav_list {
+        display: inline-block;
+        padding: 5px 20px;
+        background-color: #24252A;
+    }
+
+    .nav_links .nav_list .nav_a {
+        transition: all 0.3s ease 0s;
+        background-color: #24252A;
+    }
+
+    .nav_links .nav_list .nav_a:hover {
+        color: #0088a9;
+    }
+
+    .nav_button {
+        padding: 9px 25px;
+        background-color: rgba(0,136,169,1);
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+   }
+
+   .nav_button:hover {
+        background-color: rgba(0,136,169,1);
+   }
+</style>

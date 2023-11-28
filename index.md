@@ -10,7 +10,6 @@ layout: none
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fibonacci Art Gallery</title>
-    <link rel="stylesheet" href="styles.css">
     <script src="sort.js" defer></script>
 </head>
 
