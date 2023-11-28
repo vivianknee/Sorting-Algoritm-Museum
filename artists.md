@@ -1,7 +1,7 @@
 ---
 layout: none
-permalink: /artists/
-title: artists
+permalink: /Artists/
+title: Artists
 ---
 
 {%- include avk_head.html -%}
