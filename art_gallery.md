@@ -8,7 +8,6 @@ permalink: /ArtGallery/
 
 <!-- sort by likes -->
 
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
