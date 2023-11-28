@@ -1,7 +1,11 @@
 ---
-layout: home
+layout: none
 title: Art Generator
+permalink: /ArtGenerator/
 ---
+
+{%- include avk_head.html -%}
+
 <!DOCTYPE html>
 <html lang="en">
 

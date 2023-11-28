@@ -1,7 +1,13 @@
 ---
-layout: home
-title: Art Gallary
+layout: none
+title: Art Gallery
+permalink: /ArtGallery/
 ---
+
+{%- include avk_head.html -%}
+
+<!-- sort by likes -->
+
 <!DOCTYPE html>
 <html lang="en">
 
