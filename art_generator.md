@@ -97,3 +97,76 @@ function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 </script>
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #dddce6;
+        color: #333;
+    }
+    header {
+        background-color: #f1f0f7;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+    main {
+        padding: 20px;
+        background-color: #dddce6;
+    }
+    section {
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: #fff; 
+    }
+    h1 {
+        font-family: Optima, sans-serif;
+        color: #3a3957; 
+        font-size: 50px;
+    }
+    h2 {
+        font-family: Optima, sans-serif;
+        color: #3a3957; 
+        font-size: 35px;
+    }
+    img {
+        max-width: 100%; 
+        height: auto;
+        border-radius: 8px; 
+    }
+    .like-section {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+    }
+    button {
+        background-color: #3eb55f;
+        color: #fff;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .likes-count {
+        margin-left: 5px;
+        color: #333;
+        background-color: #f1f0f7;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 20px;
+    }
+    footer {
+        background-color: #dddce6;
+        font-family: "Times New Roman", sans-serif;
+        color: #3a3957;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
