@@ -68,7 +68,7 @@ function recursiveDraw(x, y, a, b, count, maxIterations) {
     if (count < maxIterations) {
         ctx.beginPath();
         ctx.arc(x, y, a * 5, 0, Math.PI * 2);
-        ctx.fillStyle = `hsl(${(count * 20) % 360}, 70%, 50%)`; // Adjust color based on iteration
+        ctx.fillStyle = `hsl(${Math.random() * 360}, 70%, 50%)`; // Adjust color based on iteration
         ctx.fill();
         const nextX = x + b * 5 * Math.cos(count);
         const nextY = y + b * 5 * Math.sin(count);
