@@ -138,11 +138,6 @@ function clearCanvas() {
         height: auto;
         border-radius: 8px; 
     }
-    .like-section {
-        margin-top: 10px;
-        display: flex;
-        align-items: center;
-    }
     button {
         background-color: #3eb55f;
         color: #fff;
@@ -150,14 +145,6 @@ function clearCanvas() {
         border: none;
         border-radius: 5px;
         cursor: pointer;
-    }
-    .likes-count {
-        margin-left: 5px;
-        color: #333;
-        background-color: #f1f0f7;
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-size: 20px;
     }
     footer {
         background-color: #dddce6;
