@@ -76,53 +76,61 @@ function updateLikesCount(artId, likes) {
     }
 }
 </script>
+
 <style>
     body {
         font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #dddce6;
+        background-color: #F6F6F2;
         color: #333;
     }
     header {
-        background-color: #f1f0f7;
-        color: #fff;
+        background-color: #F6F6F2;
+        color: #F6F6F2;
         padding: 10px;
         text-align: center;
     }
     main {
         padding: 20px;
-        background-color: #dddce6;
+        background-color: #F6F6F2;
     }
     section {
         margin-bottom: 30px;
-        border: 1px solid #ddd;
+        border: 1px solid #6FB3B8;
         padding: 10px;
         border-radius: 8px;
-        background-color: #fff; 
+        background-color: #BADFE7; 
     }
     h1 {
         font-family: Optima, sans-serif;
-        color: #3a3957; 
+        color: #388087; 
         font-size: 50px;
+        background-color: #F6F6F2;
     }
     h2 {
         font-family: Optima, sans-serif;
-        color: #3a3957; 
+        color: #2f5154; 
         font-size: 35px;
+        background-color: #BADFE7;
     }
     img {
         max-width: 100%; 
         height: auto;
         border-radius: 8px; 
     }
+    .art-content {
+        background-color: #BADFE7;
+        margin-top: 10px;
+    }
     .like-section {
         margin-top: 10px;
         display: flex;
         align-items: center;
+        background-color: #BADFE7;
     }
     button {
-        background-color: #3eb55f;
+        background-color: #60e085;
         color: #fff;
         padding: 5px 10px;
         border: none;
@@ -132,15 +140,15 @@ function updateLikesCount(artId, likes) {
     .likes-count {
         margin-left: 5px;
         color: #333;
-        background-color: #f1f0f7;
+        background-color: #ffffff;
         padding: 5px 10px;
         border-radius: 5px;
         font-size: 20px;
     }
     footer {
-        background-color: #dddce6;
+        background-color: #F6F6F2;
         font-family: "Times New Roman", sans-serif;
-        color: #3a3957;
+        color: #388087;
         text-align: center;
         padding: 10px;
         position: fixed;

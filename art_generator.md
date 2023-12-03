@@ -12,21 +12,13 @@ permalink: /ArtGenerator/
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fibonacci Art Generator</title>
-    <style>
-        /* Add your styling here */
-        canvas {
-            border: 1px solid #000;
-            display: block;
-            margin: 20px auto;
-        }
-    </style>
     <script src="fibonacci-art.js" defer></script>
 </head>
 
 <body>
     <header>
         <h1>Fibonacci Art Generator</h1>
-        <div>
+        <div class="button-space">
             <button onclick="generateArt()">Generate Art</button>
             <button onclick="clearCanvas()">Clear</button>
         </div>
@@ -99,47 +91,41 @@ function clearCanvas() {
 </script>
 
 <style>
+    canvas {
+        border: 1px solid #6FB3B8;
+        display: block;
+        margin: 5px auto;
+    }
+    .button-space {
+        background-color: #F6F6F2;
+        text-align: center;
+    }
     body {
         font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #dddce6;
+        background-color: #F6F6F2;
         color: #333;
     }
     header {
-        background-color: #f1f0f7;
-        color: #fff;
+        background-color: #F6F6F2;
+        color: #F6F6F2;
         padding: 10px;
         text-align: center;
     }
     main {
         padding: 20px;
-        background-color: #dddce6;
-    }
-    section {
-        margin-bottom: 30px;
-        border: 1px solid #ddd;
-        padding: 10px;
-        border-radius: 8px;
-        background-color: #fff; 
+        background-color: #F6F6F2;
     }
     h1 {
         font-family: Optima, sans-serif;
-        color: #3a3957; 
+        color: #388087; 
         font-size: 50px;
-    }
-    h2 {
-        font-family: Optima, sans-serif;
-        color: #3a3957; 
-        font-size: 35px;
-    }
-    img {
-        max-width: 100%; 
-        height: auto;
-        border-radius: 8px; 
+        background-color: #F6F6F2;
     }
     button {
-        background-color: #3eb55f;
+        margin-top: 20px;
+        background-color: #60e085;
         color: #fff;
         padding: 5px 10px;
         border: none;
@@ -147,9 +133,9 @@ function clearCanvas() {
         cursor: pointer;
     }
     footer {
-        background-color: #dddce6;
+        background-color: #F6F6F2;
         font-family: "Times New Roman", sans-serif;
-        color: #3a3957;
+        color: #388087;
         text-align: center;
         padding: 10px;
         position: fixed;
