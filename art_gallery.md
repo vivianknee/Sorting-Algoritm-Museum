@@ -21,7 +21,7 @@ permalink: /ArtGallery/
 </head>
 <body>
     <header>
-        <h1>Welcome to the Art Gallery</h1>
+        <h1>Art Gallery</h1>
     </header>
     <main>
         <section class="art-piece" data-artid="1">
@@ -117,7 +117,6 @@ function updateLikesCount(artId, likes) {
     img {
         max-width: 100%; 
         height: auto;
-        border-radius: 8px; 
     }
     .art-content {
         background-color: #BADFE7;
