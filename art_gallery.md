@@ -19,7 +19,7 @@ permalink: /ArtGallery/
     <header>
         <h1>Art Gallery</h1>
     </header>
-    <main id="art_root">
+    <main class = "grid" id="art_root">
     </main>
 </body>
 
@@ -101,6 +101,7 @@ permalink: /ArtGallery/
         padding: 0;
         background-color: #F6F6F2;
         color: #333;
+        place-items: center;
     }
     header {
         background-color: #F6F6F2;
@@ -108,9 +109,17 @@ permalink: /ArtGallery/
         padding: 10px;
         text-align: center;
     }
-    main {
-        padding: 20px;
+    .grid{ 
         background-color: #F6F6F2;
+        padding: 20px;
+        position: absolute;
+        top: 25%;
+        left: 10%;
+        width: 90%;
+        display: grid;
+        overflow: hidden;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 25px;
     }
     .art_piece {
         margin-bottom: 30px;
