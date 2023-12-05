@@ -18,6 +18,8 @@ permalink: /ArtGenerator/
 <body>
     <header>
         <h1>Fibonacci Art Generator</h1>
+        <h6 id="generationTime"></h6>
+        <h6 id="fibMethod"></h6> <!-- Added this line for displaying the Fibonacci method -->
         <div class="button-space">
             <button onclick="generateArt()">Generate Art</button>
             <button onclick="clearCanvas()">Clear</button>
@@ -26,7 +28,6 @@ permalink: /ArtGenerator/
     <main>
         <canvas id="fibCanvas" width="600" height="400"></canvas>
     </main>
-   
 </body>
 
 </html>
@@ -41,13 +42,22 @@ function fibonacciBinet(n) {
     return fibN;
 }
 function generateArt() {
+    const startTime = performance.now();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const method = Math.random() < 0.5 ? 'recursive' : 'goldenRatio';
+    const method = Math.random() < 0.5 ? 'recursive' : 'Binet formula'; // Updated method names
+    displayFibMethod(method); // Display Fibonacci method used
     if (method === 'recursive') {
         generateRecursiveArt();
     } else {
         generateRecursiveArtWithBinet(12);
     }
+    const endTime = performance.now();
+    const generationTime = endTime - startTime;
+    displayGenerationTime(generationTime);
+}
+function displayFibMethod(method) {
+    const fibMethodElement = document.getElementById('fibMethod');
+    fibMethodElement.textContent = `Fibonacci Method Used: ${method}`;
 }
 function generateRecursiveArt() {
     const centerX = canvas.width / 2;
@@ -64,6 +74,10 @@ function recursiveDraw(x, y, a, b, count, maxIterations) {
         const nextY = y + b * 5 * Math.sin(count);
         recursiveDraw(nextX, nextY, b, a + b, count + 1, maxIterations);
     }
+}
+function displayGenerationTime(time) {
+    const generationTimeElement = document.getElementById('generationTime');
+    generationTimeElement.textContent = `Generation Time: ${time.toFixed(2)} milliseconds`;
 }
 function generateRecursiveArtWithBinet(maxIterations) {
     const centerX = canvas.width / 2;
@@ -119,6 +133,12 @@ function clearCanvas() {
         font-family: Optima, sans-serif;
         color: #388087; 
         font-size: 50px;
+        background-color: #F6F6F2;
+    }
+    h6 {
+        font-family: Optima, sans-serif;
+        color: red; 
+        font-size: 25px;
         background-color: #F6F6F2;
     }
     button {
