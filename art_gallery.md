@@ -32,7 +32,7 @@ permalink: /ArtGallery/
         <button id="sort_button" >Sort</button>
     </div>
     <div>
-        <p>time go here</p>
+        <p id="sort_time">time go here</p>
     </div>
     <main class = "grid" id="art_root">
     </main>
@@ -125,7 +125,8 @@ permalink: /ArtGallery/
                     .then((sortResult) => { 
                         console.log(sortResult);
                         formatArt(sortResult.sortedArts); 
-                        //sortResult.sortTime
+                        const sort_time = document.getElementById("sort_time");
+                        sort_time.innerHTML = sortResult.sortTime;
                     });
                 });
     }
