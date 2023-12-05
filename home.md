@@ -1,7 +1,7 @@
 ---
 layout: none
-permalink: /Artists/
-title: Artists
+permalink: /Home/
+title: Home
 ---
 
 {%- include avk_head.html -%}
@@ -17,9 +17,6 @@ title: Artists
         </section>
     </section>
 </body>
-<footer>
-        <p>&copy; 2023 Home Art Gallery</p>
-</footer>
 
 <style>
     body {

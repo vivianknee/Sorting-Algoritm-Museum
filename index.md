@@ -39,9 +39,6 @@ layout: none
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2023 Fibonacci Art Gallery</p>
-    </footer>
 </body>
 
 </html>
