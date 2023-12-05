@@ -128,5 +128,15 @@ layout: none
         font-size: 50px;
         background-color: #F6F6F2;
         margin-top: 10px;
+        animation-duration: 1s;
+      animation-fill-mode: forwards;
+    }
+    @keyframes moveUp {
+      from { transform: translateY(0); }
+      to { transform: translateY(-100px); }
+    }
+    @keyframes moveDown {
+      from { transform: translateY(0); }
+      to { transform: translateY(100px); }
     }
 </style>
