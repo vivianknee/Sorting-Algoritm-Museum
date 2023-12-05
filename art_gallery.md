@@ -23,6 +23,7 @@ permalink: /ArtGallery/
         <form>
             <label for="sorts"> Sorts</label>
             <select name="sorts" id="sorts">  
+                <option value="blank"></option>
                 <option value="merge">Merge</option>
                 <option value="selection">Selection</option>
                 <option value="insertion">Insertion</option>
@@ -32,7 +33,7 @@ permalink: /ArtGallery/
         <button id="sort_button" >Sort</button>
     </div>
     <div>
-        <p id="sort_time">time go here</p>
+        <p id="sort_time">Sort Time: </p>
     </div>
     <main class = "grid" id="art_root">
     </main>
@@ -42,7 +43,7 @@ permalink: /ArtGallery/
 <script>
     //get request to display art
     function getArtWorks() {
-        fetch('http://localhost:8013/api/art/')
+        fetch('https://avk.stu.nighthawkcodingsociety.com/api/art/')
             .then(response => response.json())
             .then(data => {
                 formatArt(data);  
@@ -87,7 +88,7 @@ permalink: /ArtGallery/
             span.className = "likes_count"
             //update likes function
             like_button.addEventListener("click", function(){
-                fetch(`http://localhost:8013/api/art/like/${art.id}`, {
+                fetch(`https://avk.stu.nighthawkcodingsociety.com/api/art/like/${art.id}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -115,7 +116,7 @@ permalink: /ArtGallery/
         console.log(sort_button);
         sort_button.addEventListener("click", function(){
                     var sortingMethod = document.getElementById('sorts').value
-                    fetch(`http://localhost:8013/api/art/sorted/${sortingMethod}`, {
+                    fetch(`https://avk.stu.nighthawkcodingsociety.com/api/art/sorted/${sortingMethod}`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -126,7 +127,7 @@ permalink: /ArtGallery/
                         console.log(sortResult);
                         formatArt(sortResult.sortedArts); 
                         const sort_time = document.getElementById("sort_time");
-                        sort_time.innerHTML = sortResult.sortTime;
+                        sort_time.innerHTML = "Sort Time: " + sortResult.sortTime + " ns";
                     });
                 });
     }
