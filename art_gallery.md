@@ -131,12 +131,7 @@ permalink: /ArtGallery/
         font-size: 35px;
         background-color: #BADFE7;
     }
-    img {
-        max-width: 100%; 
-        height: auto;
-        border-radius: 8px; 
-    }
-    .art-content {
+    .img_div {
         background-color: #BADFE7;
         margin-top: 10px;
     }
