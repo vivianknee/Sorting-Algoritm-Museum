@@ -19,6 +19,20 @@ permalink: /ArtGallery/
     <header>
         <h1>Art Gallery</h1>
     </header>
+    <div class="select">
+        <form>
+            <label for="sorts"> Sorts</label>
+            <select name="sorts" id="sorts">  
+                <option value="merge">Merge</option>
+                <option value="selection">Selection</option>
+                <option value="insertion">Insertion</option>
+                <option value="bubble">Bubble</option>
+            </select>
+        </form>
+    </div>
+    <div>
+        <p>time go here</p>
+    </div>
     <main class = "grid" id="art_root">
     </main>
 </body>
@@ -46,6 +60,7 @@ permalink: /ArtGallery/
             //individual artwork div
             const art_section = document.createElement("section");
             art_section.className = "art_piece";
+            //art_section.id = art.id;
             // label artwork
             const art_label = document.createElement("h2")
             art_label.innerHTML += art.artName;
@@ -65,8 +80,24 @@ permalink: /ArtGallery/
             button.className = "like_button"
             button.innerHTML = "Like";
             const span = document.createElement('span');
+            span.id = art.id;
+            span.innerHTML = art.like;
             span.className = "likes_count"
-            span.innerHTML += art.like;
+            //update likes function
+            button.addEventListener("click", function(){
+                fetch(`http://localhost:8013/api/art/like/${art.id}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then((response) => response.json())
+                .then((newArt) => { 
+                    const update_span = document.getElementById(art.id);
+                    update_span.innerHTML = newArt.like;
+                    //console.log(newArt);
+                });
+            });
             //append
             like_div.appendChild(button);
             like_div.appendChild(span);
@@ -74,17 +105,19 @@ permalink: /ArtGallery/
             art_section.appendChild(img_div);
             art_section.appendChild(like_div);
             root_div.appendChild(art_section);
-        });
+    });
     }
     formatArt(arts);
+    //perform sort
+     if(document.getElementById('sorts').value == "merge") {
+        }
+    if(document.getElementById('sorts').value == "insertion") {
+        }
+    if(document.getElementById('sorts').value == "selection") {
+        }
+    if(document.getElementById('sorts').value == "bubble") {
+        }
     //post request to update likes
-    //
-    // Simulating an array of art pieces with their IDs and initial likes
-    const artPieces = [
-        { id: 1, likes: 0 },
-        { id: 2, likes: 0 },
-        // Add more art pieces with their IDs and initial likes
-    ];
     function likeArt(artId) {
         const artPiece = artPieces.find(piece => piece.id === artId);
         if (artPiece) {
