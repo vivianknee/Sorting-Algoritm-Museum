@@ -14,67 +14,84 @@ permalink: /ArtGallery/
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art Gallery</title>
-    <!-- 
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
-    -->
-    <script src="gallery.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Welcome to the Art Gallery</h1>
     </header>
-    <main>
-        <section class="art-piece" data-artid="1">
-            <h2>Art Piece 1</h2>
-            <div class="art-content">
-                <!-- Display the art piece here -->
-                <img src="art1.jpg" alt="Art Piece 1">
-            </div>
-            <div class="like-section">
-                <button onclick="likeArt(1)">Like</button>
-                <span class="likes-count">0</span>
-            </div>
-        </section>
-        <section class="art-piece" data-artid="2">
-            <h2>Art Piece 2</h2>
-            <div class="art-content">
-                <!-- Display the art piece here -->
-                <img src="art2.jpg" alt="Art Piece 2">
-            </div>
-            <div class="like-section">
-                <button onclick="likeArt(2)">Like</button>
-                <span class="likes-count">0</span>
-            </div>
-        </section>
-        <!-- Add more art pieces with similar structure -->
+    <main id="art_root">
     </main>
-    <footer>
-        <p>&copy; 2023 Art Gallery</p>
-    </footer>
 </body>
 
 </html>
 <script>
-    // gallery.js
-// Simulating an array of art pieces with their IDs and initial likes
-const artPieces = [
-    { id: 1, likes: 0 },
-    { id: 2, likes: 0 },
-    // Add more art pieces with their IDs and initial likes
-];
-function likeArt(artId) {
-    const artPiece = artPieces.find(piece => piece.id === artId);
-    if (artPiece) {
-        artPiece.likes++;
-        updateLikesCount(artId, artPiece.likes);
+    //get request to display art
+    function getArtWorks() {
+        fetch('http://localhost:8013/api/art/')
+            .then(response => response.json())
+            .then(data => {
+                formatArt(data);  
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
-}
-function updateLikesCount(artId, likes) {
-    const likeSection = document.querySelector(`.art-piece[data-artid="${artId}"] .likes-count`);
-    if (likeSection) {
-        likeSection.textContent = likes;
+    getArtWorks();
+    //format display and population of data
+    function formatArt(arts) {
+        // find the root div
+         arts.forEach(art =>{
+            //outer most div
+            const root_div = document.getElementById("art_root");
+            //individual artwork div
+            const art_section = document.createElement("section");
+            art_section.className = "art_piece";
+            // label artwork
+            const art_label = document.createElement("h2")
+            art_label.innerHTML += art.artName;
+            //img inside art div
+            const img_div = document.createElement('div');
+            img_div.className = "img_div"
+            const img = document.createElement('img');
+            img.src = "{{ site.baseurl }}/images/" + art.id + ".jpg";
+            img.width = "350";
+            img.height = "300";
+            console.log(img.src);
+            img_div.appendChild(img);
+            //format likes inside like div
+            const like_div = document.createElement('div');
+            like_div.className = "like_div";
+            const button = document.createElement('button');
+            button.className = "like_button"
+            button.innerHTML = "Like";
+            const span = document.createElement('span');
+            span.className = "likes_count"
+            span.innerHTML += art.like;
+            //append
+            like_div.appendChild(button);
+            like_div.appendChild(span);
+            art_section.appendChild(art_label);
+            art_section.appendChild(img_div);
+            art_section.appendChild(like_div);
+            root_div.appendChild(art_section);
+        });
     }
-}
+    formatArt(arts);
+    //post request to update likes
+    //
+    // Simulating an array of art pieces with their IDs and initial likes
+    const artPieces = [
+        { id: 1, likes: 0 },
+        { id: 2, likes: 0 },
+        // Add more art pieces with their IDs and initial likes
+    ];
+    function likeArt(artId) {
+        const artPiece = artPieces.find(piece => piece.id === artId);
+        if (artPiece) {
+            artPiece.likes++;
+            updateLikesCount(artId, artPiece.likes);
+        }
+    }
 </script>
 
 <style>
@@ -95,7 +112,7 @@ function updateLikesCount(artId, likes) {
         padding: 20px;
         background-color: #F6F6F2;
     }
-    section {
+    .art_piece {
         margin-bottom: 30px;
         border: 1px solid #6FB3B8;
         padding: 10px;
@@ -114,22 +131,17 @@ function updateLikesCount(artId, likes) {
         font-size: 35px;
         background-color: #BADFE7;
     }
-    img {
-        max-width: 100%; 
-        height: auto;
-        border-radius: 8px; 
-    }
-    .art-content {
+    .img_div {
         background-color: #BADFE7;
         margin-top: 10px;
     }
-    .like-section {
+    .like_div {
         margin-top: 10px;
         display: flex;
         align-items: center;
         background-color: #BADFE7;
     }
-    button {
+    .like_button {
         background-color: #60e085;
         color: #fff;
         padding: 5px 10px;
@@ -137,22 +149,12 @@ function updateLikesCount(artId, likes) {
         border-radius: 5px;
         cursor: pointer;
     }
-    .likes-count {
+    .likes_count {
         margin-left: 5px;
         color: #333;
         background-color: #ffffff;
         padding: 5px 10px;
         border-radius: 5px;
         font-size: 20px;
-    }
-    footer {
-        background-color: #F6F6F2;
-        font-family: "Times New Roman", sans-serif;
-        color: #388087;
-        text-align: center;
-        padding: 10px;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
     }
 </style>

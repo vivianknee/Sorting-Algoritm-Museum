@@ -26,9 +26,7 @@ permalink: /ArtGenerator/
     <main>
         <canvas id="fibCanvas" width="600" height="400"></canvas>
     </main>
-    <footer>
-        <p>&copy; 2023 Fibonacci Art Gallery</p>
-    </footer>
+   
 </body>
 
 </html>
