@@ -17,7 +17,7 @@ permalink: /ArtGallery/
 </head>
 <body>
     <header>
-        <h1>Welcome to the Art Gallery</h1>
+        <h1>Art Gallery</h1>
     </header>
     <main id="art_root">
     </main>
@@ -131,7 +131,12 @@ permalink: /ArtGallery/
         font-size: 35px;
         background-color: #BADFE7;
     }
-    .img_div {
+    img {
+        max-width: 100%; 
+        height: auto;
+        border-radius: 8px; 
+    }
+    .art-content {
         background-color: #BADFE7;
         margin-top: 10px;
     }
