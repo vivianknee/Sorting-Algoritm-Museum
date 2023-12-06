@@ -23,6 +23,7 @@ permalink: /ArtGenerator/
         <div class="button-space">
             <button onclick="generateArt()">Generate Art</button>
             <button onclick="clearCanvas()">Clear</button>
+            <button onclick="saveCanvasAsImage()">Save Image</button>
         </div>
     </header>
     <main>
@@ -200,6 +201,13 @@ function generateMatrixArt() {
         // Update angle for the next circle placement
         angle += Math.PI / 2; // You can experiment with different angles
     }
+}
+//Save Image
+function saveCanvasAsImage() {
+    const link = document.createElement('a');
+    link.download = 'fibonacci_art.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
 }
 function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
