@@ -14,6 +14,7 @@ layout: none
             <button onclick="window.location.href='{{ site.baseurl }}/ArtGenerator'">Fibonacci Art Generator</button>
         </section>
     </section>
+    <p class="center1"><img src="{{ site.baseurl }}/images/gif.gif" width=250px/></p>
     <div class="numbers" id="numbers">
     <span>8</span>
     <span>3</span>
@@ -65,6 +66,8 @@ layout: none
 </body>
 
 <style>
+    p {text-align: center;
+    background-color: #F6F6F2;}
     body {
         font-family: 'Arial', sans-serif;
         margin: 0;
