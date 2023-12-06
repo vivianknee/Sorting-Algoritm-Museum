@@ -21,7 +21,7 @@ permalink: /ArtGallery/
     </header>
     <div class="select">
         <form>
-            <label for="sorts"> Sorts</label>
+            <label class="sort_types" for="sorts">Sort Types</label>
             <select name="sorts" id="sorts">  
                 <option value="blank"></option>
                 <option value="merge">Merge</option>
@@ -30,10 +30,10 @@ permalink: /ArtGallery/
                 <option value="bubble">Bubble</option>
             </select>
         </form>
-        <button id="sort_button" >Sort</button>
+        <button class="sort_button" id="sort_button">Sort</button>
     </div>
     <div>
-        <p id="sort_time">Sort Time: </p>
+        <p class="sort_time" id="sort_time">Sort Time: </p>
     </div>
     <main class = "grid" id="art_root">
     </main>
@@ -191,7 +191,7 @@ permalink: /ArtGallery/
         align-items: center;
         background-color: #BADFE7;
     }
-    .like_button {
+    .like_button, .sort_button {
         background-color: #60e085;
         color: #fff;
         padding: 5px 10px;
@@ -206,5 +206,10 @@ permalink: /ArtGallery/
         padding: 5px 10px;
         border-radius: 5px;
         font-size: 20px;
+    }
+    .sort_time, .sort_types{
+        color: #2f5154;
+        background-color: #F6F6F2;
+        font-family: Optima, sans-serif;
     }
 </style>
