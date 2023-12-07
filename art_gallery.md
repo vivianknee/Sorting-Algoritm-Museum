@@ -156,7 +156,7 @@ permalink: /ArtGallery/
         position: absolute;
         top: 25%;
         left: 12%;
-        width: 90%;
+        width: 87%;
         display: grid;
         overflow: hidden;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
