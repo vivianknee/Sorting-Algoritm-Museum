@@ -155,7 +155,7 @@ permalink: /ArtGallery/
         padding: 20px;
         position: absolute;
         top: 25%;
-        left: 10%;
+        left: 15%;
         width: 90%;
         display: grid;
         overflow: hidden;
