@@ -72,8 +72,8 @@ permalink: /ArtGallery/
             img_div.className = "img_div"
             const img = document.createElement('img');
             img.src = "{{ site.baseurl }}/images/" + art.id + ".jpg";
-            img.width = "350";
-            img.height = "300";
+            img.width = "250";
+            img.height = "200";
             console.log(img.src);
             img_div.appendChild(img);
             //format likes inside like div
@@ -159,7 +159,7 @@ permalink: /ArtGallery/
         width: 90%;
         display: grid;
         overflow: hidden;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         grid-gap: 25px;
     }
     .art_piece {
