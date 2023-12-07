@@ -156,7 +156,7 @@ permalink: /ArtGallery/
         position: absolute;
         top: 25%;
         left: 12%;
-        width: 87%;
+        width: 90%;
         display: grid;
         overflow: hidden;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -207,6 +207,7 @@ permalink: /ArtGallery/
         padding: 5px 10px;
         border-radius: 5px;
         font-size: 20px;
+        margin-top: 10px;
     }
     .sort_types{
         color: #2f5154;
