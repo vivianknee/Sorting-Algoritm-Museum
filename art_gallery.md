@@ -154,7 +154,7 @@ permalink: /ArtGallery/
         background-color: #F6F6F2;
         padding: 20px;
         position: absolute;
-        top: 30%;
+        top: 32%;
         left: 12%;
         width: 87%;
         display: grid;
