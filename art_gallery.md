@@ -20,8 +20,8 @@ permalink: /ArtGallery/
         <h1>Art Gallery</h1>
     </header>
     <div class="select">
-        <form>
-            <label for="sorts"> Sorts</label>
+        <form class="sort_typesbg">
+            <label class="sort_types" for="sorts">Sort Types</label>
             <select name="sorts" id="sorts">  
                 <option value="blank"></option>
                 <option value="merge">Merge</option>
@@ -30,10 +30,10 @@ permalink: /ArtGallery/
                 <option value="bubble">Bubble</option>
             </select>
         </form>
-        <button id="sort_button" >Sort</button>
+        <button class="sort_button" id="sort_button">Sort</button>
     </div>
     <div>
-        <p id="sort_time">Sort Time: </p>
+        <p class="sort_time" id="sort_time">Sort Time: </p>
     </div>
     <main class = "grid" id="art_root">
     </main>
@@ -155,11 +155,11 @@ permalink: /ArtGallery/
         padding: 20px;
         position: absolute;
         top: 25%;
-        left: 10%;
-        width: 90%;
+        left: 12%;
+        width: 87%;
         display: grid;
         overflow: hidden;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         grid-gap: 25px;
     }
     .art_piece {
@@ -191,13 +191,14 @@ permalink: /ArtGallery/
         align-items: center;
         background-color: #BADFE7;
     }
-    .like_button {
+    .like_button, .sort_button {
         background-color: #60e085;
         color: #fff;
         padding: 5px 10px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        margin-top: 10px;
     }
     .likes_count {
         margin-left: 5px;
@@ -206,5 +207,28 @@ permalink: /ArtGallery/
         padding: 5px 10px;
         border-radius: 5px;
         font-size: 20px;
+        margin-top: 10px;
+    }
+    .sort_types{
+        color: #2f5154;
+        background-color: #F6F6F2;
+        font-family: Optima, sans-serif;
+        margin-bottom: 10px;
+    }
+    .sort_time{
+        color: #2f5154;
+        background-color: #F6F6F2;
+        font-family: Optima, sans-serif;
+        margin-left: 20px;
+    }
+    .select {
+        justify-content: center;
+        align-items: left;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        background-color: #F6F6F2;
+    }
+    .sort_typesbg {
+        background-color: #F6F6F2;
     }
 </style>
