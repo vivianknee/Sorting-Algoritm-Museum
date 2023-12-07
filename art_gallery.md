@@ -160,7 +160,7 @@ permalink: /ArtGallery/
         display: grid;
         overflow: hidden;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-gap: 25px;
+        grid-gap: 22px;
     }
     .art_piece {
         margin-bottom: 30px;
