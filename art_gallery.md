@@ -155,12 +155,12 @@ permalink: /ArtGallery/
         padding: 20px;
         position: absolute;
         top: 25%;
-        left: 15%;
+        left: 12%;
         width: 90%;
         display: grid;
         overflow: hidden;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-gap: 25px;
+        grid-gap: 15px;
     }
     .art_piece {
         margin-bottom: 30px;
