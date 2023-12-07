@@ -20,7 +20,7 @@ permalink: /ArtGallery/
         <h1>Art Gallery</h1>
     </header>
     <div class="select">
-        <form>
+        <form class="sort_typesbg">
             <label class="sort_types" for="sorts">Sort Types</label>
             <select name="sorts" id="sorts">  
                 <option value="blank"></option>
@@ -198,6 +198,7 @@ permalink: /ArtGallery/
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        margin-top: 10px;
     }
     .likes_count {
         margin-left: 5px;
@@ -207,9 +208,26 @@ permalink: /ArtGallery/
         border-radius: 5px;
         font-size: 20px;
     }
-    .sort_time, .sort_types{
+    .sort_types{
         color: #2f5154;
         background-color: #F6F6F2;
         font-family: Optima, sans-serif;
+        margin-bottom: 10px;
+    }
+    .sort_time{
+        color: #2f5154;
+        background-color: #F6F6F2;
+        font-family: Optima, sans-serif;
+        margin-left: 20px;
+    }
+    .select {
+        justify-content: center;
+        align-items: left;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        background-color: #F6F6F2;
+    }
+    .sort_typesbg {
+        background-color: #F6F6F2;
     }
 </style>
