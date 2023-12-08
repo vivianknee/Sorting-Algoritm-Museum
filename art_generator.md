@@ -112,7 +112,7 @@ function recursiveDrawWithBinet(x, y, size, remainingIterations, angle) {
     if (remainingIterations > 0) {
         ctx.beginPath();
         ctx.arc(x, y, size * 3.2, 0, Math.PI * 2);
-        ctx.fillStyle = `hsl(${(size * 20 + remainingIterations * 10) % 360}, 70%, 50%)`; // Adjust color based on size and iteration
+        ctx.fillStyle = `hsl(${Math.random() * 360}, 70%, 50%)`;// Adjust color based on size and iteration
         ctx.fill();
         const newSize = fibonacciBinet(remainingIterations); // Use Binet formula for size
         const nextX = x + size * 0.05 * Math.cos(angle); // Adjust x-position based on angle
