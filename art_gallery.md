@@ -31,9 +31,9 @@ permalink: /ArtGallery/
             </select>
         </form>
         <button class="sort_button" id="sort_button">Sort</button>
-        <div>
-            <p class="sort_time" id="sort_time">Sort Time: </p>
-        </div>
+    </div>
+    <div>
+        <p class="sort_time" id="sort_time">Sort Time: </p>
     </div>
     <main class = "grid" id="art_root">
     </main>
@@ -46,10 +46,9 @@ permalink: /ArtGallery/
 </body>
 
 </html>
-
 <script>
     var deployURL = "http://localhost:8013";
-//    var deployURL = "https://avk.stu.nighthawkcodingsociety.com/";
+    //var deployURL = "https://avk.stu.nighthawkcodingsociety.com/";
     //get request to display art
     function getArtWorks() {
         fetch(deployURL + '/api/art/')
@@ -157,7 +156,6 @@ permalink: /ArtGallery/
     }
     setupSort();
     getArtWorks();
-
 </script>
 
 <style>
@@ -255,5 +253,32 @@ permalink: /ArtGallery/
     }
     .sort_typesbg {
         background-color: #F6F6F2;
+    }
+    /* popup styling*/
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+    .popup_content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
     }
 </style>
