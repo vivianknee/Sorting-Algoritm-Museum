@@ -31,19 +31,22 @@ permalink: /ArtGallery/
             </select>
         </form>
         <button class="sort_button" id="sort_button">Sort</button>
-    </div>
-    <div>
-        <p class="sort_time" id="sort_time">Sort Time: </p>
+        <div>
+            <p class="sort_time" id="sort_time">Sort Time: </p>
+        </div>
     </div>
     <main class = "grid" id="art_root">
     </main>
 </body>
 
 </html>
+
 <script>
+    var deployURL = "http://localhost:8013";
+//    var deployURL = "https://avk.stu.nighthawkcodingsociety.com/";
     //get request to display art
     function getArtWorks() {
-        fetch('https://avk.stu.nighthawkcodingsociety.com/api/art/')
+        fetch(deployURL + '/api/art/')
             .then(response => response.json())
             .then(data => {
                 formatArt(data);  
@@ -88,7 +91,7 @@ permalink: /ArtGallery/
             span.className = "likes_count"
             //update likes function
             like_button.addEventListener("click", function(){
-                fetch(`https://avk.stu.nighthawkcodingsociety.com/api/art/like/${art.id}`, {
+                fetch(deployURL + `/api/art/like/${art.id}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -116,7 +119,7 @@ permalink: /ArtGallery/
         console.log(sort_button);
         sort_button.addEventListener("click", function(){
                     var sortingMethod = document.getElementById('sorts').value
-                    fetch(`https://avk.stu.nighthawkcodingsociety.com/api/art/sorted/${sortingMethod}`, {
+                    fetch(deployURL + `/api/art/sorted/${sortingMethod}`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -133,6 +136,7 @@ permalink: /ArtGallery/
     }
     setupSort();
     getArtWorks();
+
 </script>
 
 <style>
@@ -230,5 +234,35 @@ permalink: /ArtGallery/
     }
     .sort_typesbg {
         background-color: #F6F6F2;
+    }
+
+    .animation {
+        width: 500px;
+        border-radius: 30px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: -50%;
+        visibility: hidden;
+        transition: all 0.5s;
+    }
+
+    .done-button {
+        color: #fff;
+        font-size: 12px;
+        font-weight: 500;
+        background: #60e085;
+        margin: 30px 0;
+        padding: 10px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        border: none;
+    }
+
+    .display {
+        top: 25%;
+        visibility: visible;
     }
 </style>
