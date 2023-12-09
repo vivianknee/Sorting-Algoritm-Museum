@@ -258,11 +258,10 @@ permalink: /ArtGallery/
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        width: 200%;
+        height: 200%;
+        background-color: rgba(0, 0, 0, 0.25);
     }
-
     .popup_content {
         position: absolute;
         top: 50%;
@@ -273,7 +272,6 @@ permalink: /ArtGallery/
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
-
     .close {
         position: absolute;
         top: 10px;
