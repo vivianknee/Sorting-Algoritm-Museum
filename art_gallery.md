@@ -37,6 +37,12 @@ permalink: /ArtGallery/
     </div>
     <main class = "grid" id="art_root">
     </main>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" id="close-popup">&times;</span>
+            <p>Sort Popup</p>
+        </div>
+    </div>
 </body>
 
 </html>
@@ -47,10 +53,20 @@ permalink: /ArtGallery/
             .then(response => response.json())
             .then(data => {
                 formatArt(data);  
+                showPopup();
             })
             .catch(err => {
                 console.log(err);
             });
+    }
+    function showPopup() {
+        const popup = document.getElementById('popup');
+        const closePopupBtn = document.getElementById('close-popup');
+        popup.style.display = 'block';
+        // Close the popup when the close button is clicked
+        closePopupBtn.addEventListener('click', function() {
+            popup.style.display = 'none';
+        });
     }
     //format display and population of data
     function formatArt(arts) {
@@ -230,5 +246,34 @@ permalink: /ArtGallery/
     }
     .sort_typesbg {
         background-color: #F6F6F2;
+    }
+    /* popup styling*/
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .popup-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
     }
 </style>
