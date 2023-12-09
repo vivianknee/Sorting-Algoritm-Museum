@@ -38,8 +38,8 @@ permalink: /ArtGallery/
     <main class = "grid" id="art_root">
     </main>
     <div id="popup" class="popup">
-        <div class="popup-content">
-            <span class="close" id="close-popup">&times;</span>
+        <div class="popup_content">
+            <span class="close" id="close_popup">&times;</span>
             <p>Sort Popup</p>
         </div>
     </div>
@@ -61,10 +61,15 @@ permalink: /ArtGallery/
     }
     function showPopup() {
         const popup = document.getElementById('popup');
-        const closePopupBtn = document.getElementById('close-popup');
-        popup.style.display = 'block';
-        // Close the popup when the close button is clicked
-        closePopupBtn.addEventListener('click', function() {
+        const openPopup = document.getElementById('sort_button')
+        const closePopup = document.getElementById('close_popup');
+        popup.style.display = 'none';
+        // open popup when sort is clicked
+        sort_button.addEventListener('click', function() {
+            popup.style.display = 'block';
+        });
+        // close popup when close is clicked
+        closePopup.addEventListener('click', function() {
             popup.style.display = 'none';
         });
     }
@@ -258,7 +263,7 @@ permalink: /ArtGallery/
         background-color: rgba(0, 0, 0, 0.5);
     }
 
-    .popup-content {
+    .popup_content {
         position: absolute;
         top: 50%;
         left: 50%;
