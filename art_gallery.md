@@ -37,6 +37,12 @@ permalink: /ArtGallery/
     </div>
     <main class = "grid" id="art_root">
     </main>
+    <div id="popup" class="popup">
+        <div class="popup_content">
+            <span class="close" id="close_popup">&times;</span>
+            <p>Sort Popup</p>
+        </div>
+    </div>
 </body>
 
 </html>
@@ -50,10 +56,25 @@ permalink: /ArtGallery/
             .then(response => response.json())
             .then(data => {
                 formatArt(data);  
+                showPopup();
             })
             .catch(err => {
                 console.log(err);
             });
+    }
+    function showPopup() {
+        const popup = document.getElementById('popup');
+        const openPopup = document.getElementById('sort_button')
+        const closePopup = document.getElementById('close_popup');
+        popup.style.display = 'none';
+        // open popup when sort is clicked
+        sort_button.addEventListener('click', function() {
+            popup.style.display = 'block';
+        });
+        // close popup when close is clicked
+        closePopup.addEventListener('click', function() {
+            popup.style.display = 'none';
+        });
     }
     //format display and population of data
     function formatArt(arts) {
@@ -158,7 +179,7 @@ permalink: /ArtGallery/
         background-color: #F6F6F2;
         padding: 20px;
         position: absolute;
-        top: 25%;
+        top: 36%;
         left: 12%;
         width: 87%;
         display: grid;
@@ -234,35 +255,5 @@ permalink: /ArtGallery/
     }
     .sort_typesbg {
         background-color: #F6F6F2;
-    }
-
-    .animation {
-        width: 500px;
-        border-radius: 30px;
-        background: #fff;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        top: -50%;
-        visibility: hidden;
-        transition: all 0.5s;
-    }
-
-    .done-button {
-        color: #fff;
-        font-size: 12px;
-        font-weight: 500;
-        background: #60e085;
-        margin: 30px 0;
-        padding: 10px 30px;
-        border-radius: 50px;
-        cursor: pointer;
-        border: none;
-    }
-
-    .display {
-        top: 25%;
-        visibility: visible;
     }
 </style>

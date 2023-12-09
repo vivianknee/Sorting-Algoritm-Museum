@@ -52,7 +52,7 @@ function generateArt() {
         generateRecursiveArt();
     } else if (method < 0.5) {
         displayFibMethod('Binet formula');
-        generateRecursiveArtWithBinet(12);
+        generateRecursiveArtWithBinet(20);
     } else if (method < 0.75) {
         displayFibMethod('iterative');
         generateIterativeArt();
@@ -66,17 +66,6 @@ function generateArt() {
         generationTime = performance.now() - startTime;
     }
     displayGenerationTime(generationTime);
-}
-function generateIterativeArt() {
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-    let a = 0, b = 1;
-    for (let i = 0; i < 12; i++) { // Adjust iterations as needed
-        const fibNumber = a + b;
-        drawCircle(centerX, centerY, fibNumber);
-        a = b;
-        b = fibNumber;
-    }
 }
 function drawCircle(x, y, radius) {
     ctx.beginPath();
@@ -110,20 +99,26 @@ function displayGenerationTime(time) {
 }
 function generateRecursiveArtWithBinet(maxIterations) {
     const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-    recursiveDrawWithBinet(centerX, centerY - 350, 1, maxIterations, 0);
+    const centerY = canvas.height / 1;
+    recursiveDrawWithBinet(centerX, centerY - 350, 0.5, maxIterations, 0);
+}
+function fibonacciBinet(n) {
+    return Math.round(
+        (1 / Math.sqrt(5)) *
+        (Math.pow((1 + Math.sqrt(5)) / 2, n) - Math.pow((1 - Math.sqrt(5)) / 2, n))
+    );
 }
 function recursiveDrawWithBinet(x, y, size, remainingIterations, angle) {
     if (remainingIterations > 0) {
         ctx.beginPath();
         ctx.arc(x, y, size * 3.2, 0, Math.PI * 2);
-        ctx.fillStyle = `hsl(${(size * 20 + remainingIterations * 10) % 360}, 70%, 50%)`; // Adjust color based on size and iteration
+        ctx.fillStyle = `hsl(${Math.random() * 360}, 70%, 50%)`;// Adjust color based on size and iteration
         ctx.fill();
         const newSize = fibonacciBinet(remainingIterations); // Use Binet formula for size
-        const nextX = x + size * 5 * Math.cos(angle); // Adjust x-position based on angle
-        const nextY = y + size * 5 * Math.sin(angle); // Adjust y-position based on angle
+        const nextX = x + size * 0.05 * Math.cos(angle); // Adjust x-position based on angle
+        const nextY = y + size * 0.05 * Math.sin(angle); // Adjust y-position based on angle
         const newAngle = angle + Math.PI / 3; // Increment angle for each iteration
-        recursiveDrawWithBinet(nextX, nextY, newSize / 2, remainingIterations - 1, newAngle);
+        recursiveDrawWithBinet(nextX, nextY, newSize * 0.3, remainingIterations - 1, newAngle);
     }
 }
 // Iterative
@@ -139,18 +134,25 @@ function fibonacciIterative(n) {
 function generateIterativeArt() {
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
-    let a = 0, b = 1;
-    let angle = 0;
-    const scale = 6; // Adjust scaling factor
-    for (let i = 0; i < 12; i++) { // Adjust iterations as needed
-        const fibNumber = fibonacciIterative(i); // Generate Fibonacci number using iterative method
-        const radius = fibNumber * scale;
-        // Calculate position based on polar coordinates
-        const x = centerX + radius * Math.cos(angle);
-        const y = centerY + radius * Math.sin(angle);
-        drawCircle(x, y, fibNumber);
-        // Update angle for the next circle placement
-        angle += Math.PI / 2; // You can experiment with different angles
+    const maxIterations = 20;
+    let x = centerX;
+    let y = centerY;
+    let a = 1;
+    let b = 1;
+    let count = 0;
+    while (count < maxIterations) {
+        ctx.beginPath();
+        ctx.arc(x, y, a * 5, 0, Math.PI * 2);
+        ctx.fillStyle = `hsl(${Math.random() * 360}, 70%, 50%)`; // Adjust color based on iteration
+        ctx.fill();
+        const nextX = x + b * 5 * Math.cos(count);
+        const nextY = y + b * 5 * Math.sin(count);
+        x = nextX;
+        y = nextY;
+        const temp = a;
+        a = b;
+        b = temp + b;
+        count++;
     }
 }
 // Matrix
@@ -190,13 +192,13 @@ function generateMatrixArt() {
     const centerY = canvas.height / 2;
     let a = 0, b = 1;
     let angle = 0;
-    const scale = 6; // Adjust scaling factor
-    for (let i = 0; i < 12; i++) { // Adjust iterations as needed
+    const scale = 12; // Adjust scaling factor
+    for (let i = 0; i < 20; i++) { // Adjust iterations as needed
         const fibNumber = fibonacciMatrix(i); // Generate Fibonacci number using matrix method
         const radius = fibNumber * scale;
         // Calculate position based on polar coordinates
-        const x = centerX + radius * Math.cos(angle);
-        const y = centerY + radius * Math.sin(angle);
+        const x = centerX + radius *0.5* Math.cos(angle);
+        const y = centerY + radius *0.5* Math.sin(angle);
         drawCircle(x, y, fibNumber);
         // Update angle for the next circle placement
         angle += Math.PI / 2; // You can experiment with different angles
