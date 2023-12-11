@@ -32,15 +32,13 @@ permalink: /ArtGallery/
         </form>
         <button class="sort_button" id="sort_button">Sort</button>
     </div>
-    <div>
-        <p class="sort_time" id="sort_time">Sort Time: </p>
-    </div>
     <main class = "grid" id="art_root">
     </main>
     <div id="popup" class="popup">
         <div class="popup_content">
+            <canvas id="animation" width="500" height="350"></canvas>
             <span class="close" id="close_popup">&times;</span>
-            <p>Sort Popup</p>
+            <p id = animationText></p>
         </div>
     </div>
 </body>
@@ -149,10 +147,54 @@ permalink: /ArtGallery/
                     .then((sortResult) => { 
                         console.log(sortResult);
                         formatArt(sortResult.sortedArts); 
-                        const sort_time = document.getElementById("sort_time");
-                        sort_time.innerHTML = "Sort Time: " + sortResult.sortTime + " ns";
+                        // const sort_time = document.getElementById("sort_time");
+                        // sort_time.innerHTML = "Sort Time: " + sortResult.sortTime + " ns";
+                        animate(sortResult.sortingSteps);
+                        const animationText = document.getElementById("animationText");
+                        animationText.innerHTML = "Sort Time: " + sortResult.sortTime + "ns  Sorting Steps: " + sortResult.sortingSteps.length;
                     });
                 });
+    }
+    function animate(array) {
+        const canvas = document.getElementById("animation");
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = 'blue';
+        var barContainerWidth = 500/array[0].length;
+        var barWidth = 2/3 * barContainerWidth;
+        var i = 0;
+        var intervalInvalid = setInterval(function() {
+            ctx.clearRect(0,0,500,350);
+            var max = Math.max(...array[i]);
+            console.log(max);
+            for (let j = 0; j < array[i].length; j++) {
+                var likes = array[i][j]
+                if (likes == 0) {
+                    likes = 0.1
+                }
+                var x = barContainerWidth * j;
+                var y = (max - likes)/max * 350;
+                var w = barWidth;
+                var h = likes/max * 350
+                ctx.fillRect(x, y, w, h);
+            }
+            i++;
+            if (i >= array.length) {
+                clearInterval(intervalInvalid);
+            }
+        }, 500);
+        // 1. find the bar container width (500/size of the inner array)
+        // 2. decide the width of each bar (2/3 * container width)
+        // loop through out array
+        //     1. find the max value of the inner array;
+        //     
+        //     loop through each item in the inner array:
+        //          1. set x, y, w, h
+        //              x = container width * index
+        //              y = (max value - value_i)/max value * 350
+        //              w = step 2 above
+        //              h = (value_i)/max value * 350
+        //           2. ctx.fillRect
+        //     sleep 5 ns 
     }
     setupSort();
     getArtWorks();
