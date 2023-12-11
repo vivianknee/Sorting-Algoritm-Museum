@@ -19,6 +19,7 @@ permalink: /ArtGenerator/
     <header>
         <h1>Fibonacci Art Generator</h1>
         <h6 id="generationTime"></h6>
+        <h6 id="number"></h6>
         <h6 id="fibMethod"></h6> <!-- Added this line for displaying the Fibonacci method -->
         <div class="button-space">
             <button onclick="generateArt()">Generate Art</button>
@@ -76,6 +77,8 @@ function drawCircle(x, y, radius) {
 function displayFibMethod(method) {
     const fibMethodElement = document.getElementById('fibMethod');
     fibMethodElement.textContent = `Fibonacci Method Used: ${method}`;
+    const numElement = document.getElementById('number');
+    numElement.textContent = `Number: 20`;
 }
 function generateRecursiveArt() {
     const centerX = canvas.width / 2;
