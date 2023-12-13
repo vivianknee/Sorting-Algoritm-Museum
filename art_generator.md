@@ -6,7 +6,6 @@ permalink: /ArtGenerator/
 
 {%- include avk_head.html -%}
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
