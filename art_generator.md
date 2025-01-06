@@ -19,7 +19,7 @@ permalink: /ArtGenerator/
         <h6 id="generationTime"></h6>
         <h6 id="number"></h6>
         <h6 id="fibMethod"></h6>
-        <div><input type="number" id="fibNumber" placeholder="Enter a number" /></div>
+        <div><input type="number" id="fibNumber" placeholder="Enter a number" class="input-box"/></div>
         <div class="button-space">
             <button onclick="generateFibonacci('binet')">Generate Art (Binet)</button>
             <button onclick="generateFibonacci('golden')">Generate Art (Golden Ratio)</button>
@@ -161,5 +161,17 @@ function handleFibonacciData(data, method, timeTaken) {
         position: fixed;
         bottom: 0;
         width: 100%;
+    }
+        /* Style the input box */
+    .input-box {
+        background-color: #F6F6F2;
+        font-family: "Times New Roman", sans-serif;
+        color: #388087;
+        margin-top: 10px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 200px;
     }
 </style>
