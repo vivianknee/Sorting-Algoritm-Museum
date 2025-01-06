@@ -5,16 +5,15 @@ layout: none
 {%- include avk_head.html -%}
 <body>
     <header>
-        <h1>Welcome to AVK Mini Project</h1>
+        <h1>Welcome to the Sorting Algorithm Museum</h1>
     </header>
+    <p>Press either option to explore the site</p>
     <section>
-        <h2>Aliya Tang, Kevin Du, Vivian Ni</h2>
         <section>
             <button onclick="window.location.href='{{ site.baseurl }}/ArtGallery'">Art Gallery</button>
             <button onclick="window.location.href='{{ site.baseurl }}/ArtGenerator'">Fibonacci Art Generator</button>
         </section>
     </section>
-    <p class="center1"><img src="{{ site.baseurl }}/images/gif.gif" width=250px/></p>
     <div class="numbers" id="numbers">
     <span>8</span>
     <span>3</span>
@@ -66,8 +65,13 @@ layout: none
 </body>
 
 <style>
-    p {text-align: center;
-    background-color: #F6F6F2;}
+    p {
+      text-align: center;
+      font-family: Optima, sans-serif;
+      margin-top: 15px;
+      font-size: 25px;
+      background-color: #F6F6F2;
+    }
     body {
         font-family: 'Arial', sans-serif;
         margin: 0;
@@ -111,6 +115,7 @@ layout: none
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        margin-bottom: 10px;
     }
     footer {
         background-color: #F6F6F2;
