@@ -3,7 +3,7 @@ description: "August 2023 to June 2024"
 owner_name: Vivian Ni
 github_username: vivianknee
 github_repo: "Sorting Algorithm Museum"
-baseurl: /SortingAlgorithmMuseum
+baseurl: /Sorting-Algorithm-Museum
 remote_theme: jekyll/minima
 minima:
   social_links:
